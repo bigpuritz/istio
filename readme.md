@@ -1,4 +1,4 @@
-##About 
+## About 
 
 An example project demonstrating 3 Spring-Boot applications communicating with each other 
 and deployed on Kubernetes (Minikube) / ISTIO Service Mesh.

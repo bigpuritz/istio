@@ -1,0 +1,14 @@
+apiVersion: skaffold/v2beta10
+kind: Config
+metadata:
+  name: istio-service-2
+build:
+  artifacts:
+    - image: bigpuritz/istio-service2
+      context: .
+      jib:
+        project: istio-service2
+deploy:
+  kubectl:
+    manifests:
+      - istio-service2/k8s.yaml

@@ -1,0 +1,8 @@
+apiVersion: skaffold/v2beta10
+kind: Config
+metadata:
+  name: istio
+deploy:
+  kubectl:
+    manifests:
+      - istio-gateway-vs.yaml

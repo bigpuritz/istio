@@ -1,0 +1,9 @@
+spring:
+  mvc:
+    view:
+      prefix: /demo/
+      suffix: .html
+server:
+  servlet:
+    context-path: /srv1
+

@@ -1,0 +1,14 @@
+apiVersion: skaffold/v2beta10
+kind: Config
+metadata:
+  name: istio-service-3
+build:
+  artifacts:
+    - image: bigpuritz/istio-service3
+      context: .
+      jib:
+        project: istio-service3
+deploy:
+  kubectl:
+    manifests:
+      - istio-service3/k8s.yaml

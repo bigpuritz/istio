@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: istio-service1
+  labels:
+    app: istio-service1
+spec:
+  selector:
+    app: istio-service1
+  ports:
+    - port: 8080
+      name: http
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: istio-service1-v1
+  labels:
+    app: istio-service1
+spec:
+  selector:
+    matchLabels:
+      app: istio-service1
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
+      labels:
+        app: istio-service1
+        version: v1
+    spec:
+      containers:
+        - name: istio-service1
+          image: bigpuritz/istio-service1:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080

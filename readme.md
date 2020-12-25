@@ -1,3 +1,19 @@
+##About 
+
+An example project demonstrating 3 Spring-Boot applications communicating with each other 
+and deployed on Kubernetes (Minikube) / ISTIO Service Mesh.
+
+Tools:
+
+* [Istio](https://istio.io/)
+* [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+* [Gradle](https://gradle.org/)
+* [Gradle JIB-Plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-gradle-plugin)
+* [Skaffold](https://skaffold.dev/)
+* [Dive](https://github.com/wagoodman/dive)
+
+
+
 ### Dashboards
 
 * `minikube dashboard`
@@ -31,7 +47,7 @@
 
 ### Infos
 
-_Jedes Kommando kann mit den zusätzlichen Parametern `-o yaml` oder `-o json` aufgerufen werden_
+_Each command can be called with additional parameters `-o yaml` oder `-o json`_
 
 * `istioctl analyze`
 * `kubectl get services`
@@ -46,10 +62,10 @@ _Jedes Kommando kann mit den zusätzlichen Parametern `-o yaml` oder `-o json` a
 
 ### Lokale Entwicklung
 
-Aus dem Projekt-Root das Kommando für das jeweilige Deployment aufrufen:
+Call `skaffold` from the project root-directory:
 * `skaffold dev --port-forward --filename=skaffold.yaml` 
 * `skaffold dev --port-forward --filename=istio-service1/skaffold.yaml`
 * `skaffold dev --port-forward --filename=istio-service2/skaffold.yaml`
 * `skaffold dev --port-forward --filename=istio-service3/skaffold.yaml`
 
-Zum Remote-Debugging das Kommando `skaffold debug --port-forward --filename=...` verwenden
+Remote-Debugging with `skaffold debug --port-forward --filename=...`

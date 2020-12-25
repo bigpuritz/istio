@@ -9,7 +9,9 @@
 
 ### Deployments
 
-* `kubectl apply -f istio-service1-k8s.yaml`
+* `kubectl apply -f istio-istio-service1/k8s.yaml`
+* `kubectl apply -f istio-istio-service2/k8s.yaml`
+* `kubectl apply -f istio-istio-service3/k8s.yaml`
 * `kubectl apply -f istio-service1-gtwy-vs.yaml`
 
 ### Ingress IP and ports / Tunnel
@@ -24,6 +26,8 @@
 
 * `http://$GATEWAY_URL/srv1/demo/index.html`
 * `http://$GATEWAY_URL/srv1/callme/ping`
+* `http://$GATEWAY_URL/srv2/callme/ping`
+* `http://$GATEWAY_URL/srv3/callme/ping`
 
 ### Infos
 

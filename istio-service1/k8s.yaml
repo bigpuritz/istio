@@ -1,9 +1,48 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pod-reader
+  namespace: default
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: pod-reader
+subjects:
+  - kind: ServiceAccount
+    name: config-reader
+    namespace: default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: pod-reader
+rules:
+  - apiGroups: [""]
+    resources: ["pods","configmaps"]
+    verbs: ["get", "watch", "list"]
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: config-reader
+  namespace: default
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: istio-service1-config
+data:
+  application.properties: |-
+    conf.message=Hello World!
+---
 apiVersion: v1
 kind: Service
 metadata:
   name: istio-service1
   labels:
     app: istio-service1
+    de.finkonsens/sid: "63-PROTON"
 spec:
   selector:
     app: istio-service1

@@ -11,6 +11,7 @@ Tools:
 * [Gradle JIB-Plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-gradle-plugin)
 * [Skaffold](https://skaffold.dev/)
 * [Dive](https://github.com/wagoodman/dive)
+* [Kubernetes IDE](https://k8slens.dev/)
 
 
 
